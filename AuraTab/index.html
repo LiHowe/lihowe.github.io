@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuraTab — Local-First Liquid Glass New Tab Workspace</title>
+    <meta
+      name="description"
+      content="AuraTab 是一款本地优先、注重隐私的新一代浏览器新标签页工作台，支持物理混排桌面、内置效率组件、微插件沙箱、端到端加密同步与可选 Google Workspace 集成。"
+    />
+    <link rel="icon" href="./assets/icon-128.png" type="image/png" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f8fafc;
+        --card: rgba(255, 255, 255, 0.88);
+        --text: #0f172a;
+        --muted: #475569;
+        --border: rgba(15, 23, 42, 0.1);
+        --accent: #0284c7;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #020617;
+          --card: rgba(15, 23, 42, 0.84);
+          --text: #f1f5f9;
+          --muted: #94a3b8;
+          --border: rgba(255, 255, 255, 0.14);
+          --accent: #38bdf8;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+        background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 45%),
+          radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.14), transparent 45%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.65;
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 36px 20px 64px;
+      }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 36px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .brand img {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+      }
+      .brand h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .brand span {
+        display: block;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 28px;
+        margin-bottom: 22px;
+        box-shadow: 0 20px 50px -20px rgba(15, 23, 42, 0.18);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .mini-card {
+        padding: 18px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(148, 163, 184, 0.06);
+      }
+      .mini-card h3 {
+        margin: 0 0 8px;
+        font-size: 15px;
+      }
+      .mini-card p {
+        margin: 0;
+        font-size: 13.5px;
+        color: var(--muted);
+      }
+      .shots {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+        margin-top: 14px;
+      }
+      .shots img {
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+      }
+      footer {
+        margin-top: 32px;
+        font-size: 13px;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <img src="./assets/icon-128.png" alt="AuraTab Logo" />
+          <div>
+            <h1>AuraTab 新标签页 · AuraTab New Tab</h1>
+            <span>Local-First, Privacy-Focused Browser Workspace for Microsoft Edge</span>
+          </div>
+        </div>
+        <nav>
+          <a href="./index.html">主页 Home</a>
+          <a href="./privacy-policy.html">隐私政策 Privacy Policy</a>
+          <a href="./support.html">支持 Support</a>
+        </nav>
+      </header>
+
+      <section class="card">
+        <h2 style="margin-top: 0">产品简介 / Product Overview</h2>
+        <p>
+          <strong>AuraTab</strong> 是一款坚持「本地优先（Local-First）」原则的浏览器新标签页工作台。它将浏览器空白新标签页替换为支持物理碰撞避让、底部常驻 Dock 栏、自适应明暗主题与自定义微插件沙箱的个人桌面，让常用网站、便签、天气、日历、专注计时与多源待办一屏可达。
+        </p>
+        <p style="color: var(--muted); font-size: 13.5px">
+          AuraTab replaces your browser's new tab page with a fast, local-first personal dashboard featuring shortcut organization, folders, a persistent dock, focus mode, weather, calendar, Pomodoro timer, notes, isolated custom widgets, and end-to-end encrypted backup.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2 style="margin-top: 0">核心功能 / Key Capabilities</h2>
+        <div class="grid">
+          <div class="mini-card">
+            <h3>混排桌面与快捷收藏</h3>
+            <p>支持快捷图标、文件夹与多种尺寸小组件自由混排，配合工具栏弹窗一键收藏当前网页。</p>
+          </div>
+          <div class="mini-card">
+            <h3>端到端加密零知识同步</h3>
+            <p>支持导出加密备份文件及私有 GitHub Gist / WebDAV 同步，所有数据均在本地通过 PBKDF2 + AES-256-GCM 加密。</p>
+          </div>
+          <div class="mini-card">
+            <h3>安全隔离微插件工坊</h3>
+            <p>支持 HTML/CSS/JS 自定义微插件开发，运行时隔离在独立的 <code>plugin-frame.html</code> 沙箱中，无扩展权限与外网权限。</p>
+          </div>
+          <div class="mini-card">
+            <h3>按需连接 Google Workspace</h3>
+            <p>用户可选择性授权连接 Google Tasks、Gmail（只读）与 Google Drive（仅文件元数据只读），完全在客户端会话内存运行。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 style="margin-top: 0">Google 用户数据使用声明 / Google API Data Usage</h2>
+        <p>
+          AuraTab <strong>没有开发方后端服务器</strong>，也不会收集或上传任何用户数据。仅当用户主动点击「Sign in with Google」时，扩展通过浏览器原生 <code>chrome.identity.launchWebAuthFlow</code> 获取会话级 OAuth 访问令牌（仅驻留内存，关闭标签页或退出登录即销毁），并直接向 Google 官方接口请求：
+        </p>
+        <ul>
+          <li><code>https://www.googleapis.com/auth/tasks</code> — 同步、创建、完成与管理用户的 Google Tasks 待办清单；</li>
+          <li><code>https://www.googleapis.com/auth/gmail.readonly</code> — 仅用于在新标签页组件中向用户展示收件箱未读数、发件人、主题与正文；</li>
+          <li><code>https://www.googleapis.com/auth/drive.metadata.readonly</code> — 仅用于列示并检索文件名称、修改时间与在线打开链接，不下载文件正文。</li>
+        </ul>
+        <p>
+          AuraTab 对 Google API 数据的使用严格遵守
+          <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>
+          及 <strong>Limited Use（有限使用）</strong> 规定。详见完整
+          <a href="./privacy-policy.html">隐私政策（Privacy Policy）</a>。
+        </p>
+      </section>
+
+      <section class="card">
+        <h2 style="margin-top: 0">界面预览 / Screenshots</h2>
+        <div class="shots">
+          <img src="./assets/01-desktop-light.png" alt="AuraTab Light Mode Workspace" />
+          <img src="./assets/02-desktop-dark.png" alt="AuraTab Dark Mode Workspace" />
+        </div>
+      </section>
+
+      <footer>
+        <span>AuraTab · Version 1.4.4</span>
+        <span>
+          <a href="./privacy-policy.html">隐私政策 Privacy Policy</a> ·
+          <a href="./support.html">技术支持 Support</a>
+        </span>
+      </footer>
+    </div>
+  </body>
+</html>

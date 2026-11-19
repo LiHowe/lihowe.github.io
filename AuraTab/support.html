@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuraTab 技术支持与帮助 · Support</title>
+    <link rel="icon" href="./assets/icon-128.png" type="image/png" />
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      body {
+        margin: 0;
+        padding: 40px 20px;
+        font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+        line-height: 1.75;
+        background: #f8fafc;
+        color: #0f172a;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #020617;
+          color: #e2e8f0;
+        }
+        main {
+          background: rgba(15, 23, 42, 0.88) !important;
+          border-color: rgba(255, 255, 255, 0.14) !important;
+        }
+        a {
+          color: #38bdf8;
+        }
+      }
+      main {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 36px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        box-shadow: 0 20px 50px -15px rgba(15, 23, 42, 0.16);
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 24px;
+      }
+      h2 {
+        margin-top: 26px;
+        font-size: 17px;
+      }
+      p,
+      li {
+        font-size: 14px;
+        opacity: 0.92;
+      }
+      a {
+        color: #0284c7;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p style="font-size: 13px; margin-top: 0">
+        <a href="./index.html">← 返回 AuraTab 主页</a> ·
+        <a href="./privacy-policy.html">隐私政策 Privacy Policy</a>
+      </p>
+      <h1>AuraTab 技术支持与常见问题 · Support</h1>
+
+      <h2>1. 撤销第三方授权与清除数据 / Revoking Access &amp; Deleting Data</h2>
+      <ul>
+        <li>
+          <strong>断开 Google 账号</strong>：在 Gmail、Google Drive 或待办设置弹窗中点击「退出连接」即可立即销毁当前会话内存令牌；如需彻底取消授权，请前往
+          <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google 账号安全与权限管理</a>
+          移除 AuraTab。
+        </li>
+        <li>
+          <strong>清除扩展本地数据</strong>：在浏览器扩展管理页移除 AuraTab，或通过桌面「同步与备份」导出备份后在浏览器清理扩展存储空间。
+        </li>
+      </ul>
+
+      <h2>2. 滴答清单 / TickTick 连接说明</h2>
+      <p>
+        扩展默认不连接任何开发方公共服务器。如需使用滴答清单 / TickTick 同步，可在待办设置中填写您自己部署的 AuraTab HTTPS 代理服务地址，或直接使用个人 Open API 访问令牌（令牌仅驻留当前会话内存）。
+      </p>
+
+      <h2>3. 问题反馈与联系渠道 / Contact</h2>
+      <ul>
+        <li>GitHub Issue 反馈：<a href="https://github.com/LiHowe/lihowe.github.io/issues" target="_blank" rel="noopener noreferrer">AuraTab 公开反馈</a>。请勿附上口令或个人数据。</li>
+        <li>商店支持通道：Microsoft Edge 外接程序商店 AuraTab 商品页「支持（Support）」标签页。</li>
+      </ul>
+    </main>
+  </body>
+</html>
