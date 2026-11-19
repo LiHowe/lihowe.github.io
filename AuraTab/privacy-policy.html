@@ -73,14 +73,14 @@
   <body>
     <main>
       <h1>AuraTab 新标签页隐私政策 · Privacy Policy</h1>
-      <p class="meta">生效日期：2026-11-18 · 适用版本：1.4.4 · 项目主页：<a href="https://lihowe.github.io/AuraTab/">https://lihowe.github.io/AuraTab/</a></p>
+      <p class="meta">生效日期：2026-11-19 · 适用版本：1.5.1 · 项目主页：<a href="https://lihowe.github.io/AuraTab/">https://lihowe.github.io/AuraTab/</a></p>
 
       <h2>1. 本地优先与零追踪承诺 / Local-First &amp; Zero Tracking</h2>
       <p>
-        AuraTab 是一款坚持本地优先（Local-First）原则的浏览器新标签页工作台。我们不部署任何第三方行为分析、广告追踪器或后台遥测上报服务，不会收集、出售或共享您的浏览历史与个人资料。
+        AuraTab 默认在当前设备保存桌面。联网组件向下文列出的服务请求数据，启用同步时会将相应内容传给您选择的服务。我们不出售个人数据，也不使用广告追踪、行为分析或后台遥测。
       </p>
       <p class="sub-en">
-        AuraTab is a local-first browser new tab workspace. We do not deploy analytics trackers, ad networks, or background telemetry, and we never sell, rent, or share your browsing history or personal data.
+        AuraTab saves your workspace on this device by default. Connected widgets contact the services described below. When you use sync, the selected service receives the corresponding data. We do not sell personal data or use advertising trackers, behavioral analytics, or background telemetry.
       </p>
 
       <h2>2. 设备本地存储与扩展权限 / Local Data &amp; Browser Permissions</h2>
@@ -92,7 +92,7 @@
           <code>activeTab</code>：仅在您主动点击浏览器工具栏上的 AuraTab 扩展图标时，临时读取当前活动标签页的标题、网址与站点图标，用于供您确认添加到指定主页工作区；绝不在后台静默采集任何浏览页面。
         </li>
         <li>
-          <code>bookmarks</code>：仅用于在新标签页的「收藏夹管理」工作台与收藏夹桌面组件中读取、实时同步浏览器原生收藏夹，并在您主动触发编辑、排序、移动或删除时将变更写回浏览器收藏夹；所有收藏夹数据仅在您的本地浏览器处理，绝不上传至开发者或第三方服务器。
+          <code>bookmarks</code>：用于本地检索、查看和管理浏览器收藏夹。编辑、移动或删除会写回浏览器。您选择导入桌面的书签会成为快捷方式，随您选择的桌面备份或同步方式处理。
         </li>
         <li>
           <code>search</code>：当您在新标签页搜索框选择「浏览器默认」并提交非网址检索词时，通过浏览器原生接口将搜索词交由浏览器默认搜索引擎处理，绝不篡改浏览器默认搜索设置。
@@ -104,17 +104,23 @@
           <code>identity</code>：仅在您主动点击连接 Google 账号或自己配置的滴答代理服务时，拉起浏览器原生 OAuth 2.0 授权流程，访问令牌仅驻留于当前会话内存中。
         </li>
         <li>
+          <code>storage</code>：天气预报缓存在当前浏览器会话。您在同步备份中心上传或恢复桌面配置时，AuraTab 也会使用浏览器账号的同步存储，见第 6 节。
+        </li>
+        <li>
           <strong>独立插件沙箱（<code>sandbox: plugin-frame.html</code>）</strong>：您编写或导入的自定义微插件在无扩展 API 权限、无网络访问权限的隔离沙箱页面内运行。
         </li>
       </ul>
       <p class="sub-en">
-        Shortcuts, folders, notes, local tasks, layouts, custom widgets, and appearance preferences are stored locally in IndexedDB and browser localStorage. <code>activeTab</code> is used solely upon your click on the toolbar popup to read the active tab's title, URL, and icon. <code>bookmarks</code> is used solely on-device to display, synchronize, and manage your browser bookmarks (create, edit, sort, move, delete) inside AuraTab's Bookmark Manager without uploading bookmark data to any server. <code>search</code> delegates search queries to your browser's default search provider without altering settings. <code>favicon</code> reads cached site icons locally. <code>identity</code> initiates user-triggered OAuth flows, keeping tokens strictly in memory. Custom widgets run inside an isolated <code>plugin-frame.html</code> sandbox without extension APIs or network access.
+        Desktop items and settings are stored locally. Clicking the toolbar button lets AuraTab read the active tab’s title, URL and icon. You can search and manage bookmarks locally. Bookmarks you import into the desktop become shortcuts and can be backed up or synced as described in section 6. Search uses the provider you select. Your browser supplies cached site icons, runs sign-in when requested, and provides session storage for weather and account storage for optional workspace sync. Custom widgets run in an isolated sandbox without extension APIs or network access.
       </p>
 
       <h2>3. 联网工具组件 / Connected Utility Widgets</h2>
       <ul>
         <li>
-          <strong>天气预报</strong>：仅在您主动刷新定位或检索城市时，向 Open-Meteo（<code>api.open-meteo.com</code> / <code>geocoding-api.open-meteo.com</code>）发送所选城市名称或经纬度坐标以获取气象数据，结果仅缓存在本地浏览器。
+          <strong>天气预报</strong>：搜索城市时，Open-Meteo 收到您输入的城市名。天气组件在加载、手动刷新和按设置的间隔更新时，将所选城市的经纬度发送给 Open-Meteo 获取预报，默认每小时更新一次。
+        </li>
+        <li>
+          <strong>日历订阅</strong>：添加在线日历或刷新订阅时，AuraTab 访问您提供的日历网址，必要时请求访问该主机的权限。应用会在本地缓存日程以便离线查看，删除订阅会清除其缓存。在线更新中国节假日时，仅按年份向 jsDelivr 请求公开节假日表。
         </li>
         <li>
           <strong>参考汇率</strong>：汇率组件向 ExchangeRate-API 公开接口（<code>open.er-api.com</code>）请求人民币基准参考汇率并在本地缓存。
@@ -124,11 +130,16 @@
         </li>
       </ul>
 
+      <p class="sub-en">
+        Weather searches send the city name to Open-Meteo. Loading or refreshing the widget sends the selected city’s coordinates, including scheduled updates (hourly by default). Calendar subscriptions fetch events from the URL you supply and may ask for access to that host. Removing a subscription clears its local event cache. Public holiday updates request data by year from jsDelivr. ExchangeRate-API provides reference rates, and external image hosts receive ordinary image requests.
+      </p>
+
       <h2>4. Google Workspace 数据访问与有限使用政策 / Google API Services User Data Policy</h2>
       <ul>
         <li>
           <strong>纯客户端直连与按需授权</strong>：仅在您主动点击“Sign in with Google”后，AuraTab 才会通过浏览器原生 OAuth 申请对应工作区权限范围：
           <ul>
+            <li><code>openid</code>、<code>email</code>、<code>profile</code>：从 Google 获取当前账号的邮箱、显示名称与头像，用于显示已连接的账号；</li>
             <li><code>https://www.googleapis.com/auth/tasks</code>：同步、创建、完成与删除您主动确认的 Google Tasks 待办任务；</li>
             <li><code>https://www.googleapis.com/auth/gmail.readonly</code>：只读获取收件箱未读数量、邮件发件人、主题、摘要与正文，仅用于在您的新标签页桌面卡片及展开浮窗内展示；</li>
             <li><code>https://www.googleapis.com/auth/drive.metadata.readonly</code>：仅读取云端文件名称、类型、所有者、修改时间与在线打开链接等元数据，不下载或存储您的 Drive 文件正文。</li>
@@ -144,25 +155,32 @@
         </li>
       </ul>
       <p class="sub-en">
-        AuraTab's use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements. OAuth access tokens remain strictly in active session memory and are never transmitted to or stored on developer servers.
+        Signing in retrieves your Google account’s email, display name and profile photo. Google Tasks access lets you view and manage tasks. Read-only Gmail access shows unread counts and message details, including bodies. Drive access shows file metadata and links. AuraTab's use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements. OAuth access tokens remain in active session memory.
       </p>
 
       <h2>5. 自建滴答清单 / TickTick 服务连接</h2>
       <p>
-        扩展模式下，滴答清单 / TickTick 集成不依赖开发方公共服务器，仅连接您在待办设置中显式保存的个人 HTTPS 代理服务地址或您输入的个人 Open API 访问令牌（令牌仅保存于当前会话内存）。请仅使用由您自己部署或完全信任的 HTTPS 服务。
+        您连接滴答清单 / TickTick 后，AuraTab 通过您在待办设置中保存的 HTTPS 代理请求项目和任务，并发送您创建、完成或删除任务所需的数据。访问令牌只保存在当前页面的内存中，随请求发送给您指定的代理；代理可读取令牌和任务数据。
       </p>
 
-      <h2>6. 端到端加密同步与数据清除 / Encrypted Backup &amp; Data Deletion</h2>
+      <p class="sub-en">
+        Connecting TickTick lets the HTTPS proxy you configure receive the access token and task data to show projects and manage tasks. The extension keeps the token in this tab’s memory.
+      </p>
+
+      <h2>6. 备份、同步与数据清除 / Backup, Sync &amp; Data Deletion</h2>
+      <p>
+        在同步备份中心选择上传到浏览器账号后，AuraTab 将工作区、快捷方式标题和网址、文件夹、Dock、外观与搜索设置、天气城市及坐标、自选币种和纪念日配置写入浏览器同步存储。浏览器启用账号同步时，这些配置可同步至该账号的其他设备。浏览器账号同步由浏览器提供，加密主口令仅用于下述加密备份。
+      </p>
       <p>
         使用加密备份、私有 GitHub Gist（<code>api.github.com</code>）或个人 WebDAV 同步时，所有桌面数据均在离开设备前于本地通过 Web Crypto API（<code>PBKDF2-SHA256</code> + <code>AES-256-GCM</code>）完成加密，加密口令永不上传。您可随时在组件内断开账户连接、前往
         <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google 账号权限管理</a>
         撤销授权、在浏览器中卸载 AuraTab 以清除全部本地存储数据，或手动删除您 Gist / WebDAV 中的密文文件。
       </p>
       <p>
-        开启 WebDAV 自动同步时，AuraTab 仅向您配置的服务器发送桌面密文及该服务器需要的认证信息。加密主口令加密存放在当前浏览器，关闭自动同步时删除该口令副本。
+        开启 WebDAV 自动同步时，AuraTab 会请求访问您配置的服务器，向它发送桌面密文及该服务器需要的认证信息。加密主口令加密存放在当前浏览器，关闭自动同步时删除该口令副本。
       </p>
       <p class="sub-en">
-        Automatic WebDAV sync sends encrypted workspace data and server authentication only to the configured server. The encryption passphrase is stored encrypted in the current browser. Turning off automatic sync removes the saved passphrase.
+        When you upload to your browser account, synced storage receives workspaces, shortcut titles and URLs, folders, dock layout, appearance and search settings, weather cities and coordinates, currencies and anniversary settings. Your browser can sync these to other devices on the same account. Gist and WebDAV backups use a separate passphrase and are encrypted on the device. Automatic WebDAV sync requests access to your configured server and sends it the encrypted backup and server authentication. Turning off automatic sync removes the locally saved passphrase. You can delete encrypted files at the chosen service.
       </p>
 
       <h2>7. AI 创建微插件 / AI Plugin Creation</h2>
@@ -175,17 +193,17 @@
 
       <h2>8. 快捷方式网页查看 / Viewing Shortcut Websites</h2>
       <p>
-        当您选择在弹窗、侧边栏、小窗或新标签页打开快捷方式时，浏览器直接访问所选网站。扩展通过 <code>sidePanel</code> 打开浏览器侧边栏，使用 <code>storage.session</code> 将选中的网址交给该窗口的侧边栏。此会话记录在浏览器退出后清除。
+        当您选择在弹窗、分屏或新标签页打开快捷方式时，浏览器直接访问所选网站。扩展不改写这些网页的响应头，不读取或上传其内容。
       </p>
       <p class="sub-en">
-        Opening a shortcut in the viewer or another browser window sends the selected website request directly from the browser. The extension uses Side Panel and session storage to pass the selected URL to the sidebar in that browser window. The session record clears when the browser closes.
+        When you open a shortcut in a popup, split view, or new tab, the browser visits the selected website directly. The extension does not modify these response headers or read or upload the pages' contents.
       </p>
 
       <h2>9. 联系我们 / Contact &amp; Support</h2>
       <p>
         如对本隐私政策、数据处理或数据删除有任何疑问，请访问支持页面
         <a href="https://lihowe.github.io/AuraTab/support.html">https://lihowe.github.io/AuraTab/support.html</a>
-        或通过 Microsoft Edge 外接程序商店商品页的开发者支持入口与我们联系。
+        联系我们。Contact us through the support page above for privacy or deletion requests.
       </p>
     </main>
   </body>
